@@ -1,0 +1,6 @@
+WordPress has been successfully installed at :
+https://vitaldietry.com
+Administrative URL : https://vitaldietry.com/wp-admin/
+
+Admin Username: Vital Dietry
+Admin Password: BU9weG@#ibvrdTG

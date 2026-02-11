@@ -1,0 +1,18 @@
+import type { MetadataRoute } from "next";
+import { site } from "@/lib/site";
+import { services } from "@/lib/services";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
+
+  return [
+    { url: site.url, lastModified: now },
+    { url: `${site.url}/about`, lastModified: now },
+    { url: `${site.url}/services`, lastModified: now },
+    ...services.map((s) => ({
+      url: `${site.url}/services/${s.slug}`,
+      lastModified: now,
+    })),
+    { url: `${site.url}/contact`, lastModified: now },
+  ];
+}

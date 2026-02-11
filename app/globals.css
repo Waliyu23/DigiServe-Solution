@@ -1,0 +1,239 @@
+@config "../tailwind.config.ts";
+@import "tailwindcss";
+
+/* Base styles */
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: white;
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: #1a1a1a;
+}
+
+a:hover {
+  color: #525252;
+}
+
+/* Button links should not inherit generic link styles */
+button,
+a[role="button"],
+a[class*="button"],
+a[class*="btn"] {
+  color: unset;
+}
+
+::selection {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+:focus-visible {
+  outline: none;
+}
+
+@keyframes routeDraw {
+  0% {
+    stroke-dashoffset: 220;
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -220;
+    opacity: 0.3;
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes pulseSoft {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Reusable utilities */
+@layer utilities {
+  .container-max {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 72rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-max {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-max {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  .section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .section {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  .h1 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  @media (min-width: 640px) {
+    .h1 {
+      font-size: 3rem;
+      line-height: 1;
+    }
+  }
+
+  .h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  @media (min-width: 640px) {
+    .h2 {
+      font-size: 1.875rem;
+      line-height: 2.25rem;
+    }
+  }
+
+  .p-lead {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #4b5563;
+  }
+
+  @media (min-width: 640px) {
+    .p-lead {
+      font-size: 1.125rem;
+    }
+  }
+
+.hero-rotate {
+  opacity: 0;
+  animation: heroRotate 12s infinite;
+}
+
+  .hero-rotate-delay-1 {
+    animation-delay: 3s;
+  }
+
+  .hero-rotate-delay-2 {
+    animation-delay: 6s;
+  }
+
+  .hero-rotate-delay-3 {
+    animation-delay: 9s;
+  }
+}
+
+@keyframes heroZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes heroRotate {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  35% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes heroTicker {
+  0%,
+  20% {
+    transform: translateY(0%);
+  }
+  25%,
+  45% {
+    transform: translateY(-25%);
+  }
+  50%,
+  70% {
+    transform: translateY(-50%);
+  }
+  75%,
+  95% {
+    transform: translateY(-75%);
+  }
+  100% {
+    transform: translateY(-75%);
+  }
+}
